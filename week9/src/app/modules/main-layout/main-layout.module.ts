@@ -1,3 +1,4 @@
+import { SharedModule } from "./../shared/shared.module";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { MainLayoutComponent } from "./components/main-layout/main-layout.component";
@@ -28,7 +29,7 @@ const routes: Routes = [
     ProductsComponent,
     ProductDetailComponent
   ],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, RouterModule.forChild(routes), SharedModule],
   exports: [
     RouterModule,
     MainLayoutComponent,
