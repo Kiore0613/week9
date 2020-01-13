@@ -10,11 +10,17 @@ const routes: Routes = [
   },
   {
     path: "home",
-    loadChildren: () => import("./modules/main-layout/main-layout.module")
+    loadChildren: () =>
+      import("./modules/main-layout/main-layout.module").then(
+        module => module.MainLayoutModule
+      )
   },
   {
     path: "authentication",
-    loadChildren: () => import("./modules/authentication/authentication.module")
+    loadChildren: () =>
+      import("./modules/authentication/authentication.module").then(
+        module => module.AuthenticationModule
+      )
   },
   {
     path: "**",
