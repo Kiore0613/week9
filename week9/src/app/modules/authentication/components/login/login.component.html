@@ -1,1 +1,29 @@
-<p>login works!</p>
+<div class="container">
+  <div class="card-title">
+    <h1>Log In</h1>
+  </div>
+  <form [formGroup]="form" class="form">
+    <mat-form-field class="input-container" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="me@example.com" formControlName="email" />
+      <mat-error *ngIf="getControl('email').errors?.required">
+        Email is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="getControl('email').errors?.email">
+        Email is <strong>invalid format</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="input-container" appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Password" formControlName="password" />
+      <mat-error *ngIf="getControl('password').errors?.required">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" class="btn">Login</button>
+  </form>
+  <div class="card-title">
+    <p>Don't have an account?</p>
+    <a routerLink="/auth/register">Sign Up here</a>
+  </div>
+</div>
