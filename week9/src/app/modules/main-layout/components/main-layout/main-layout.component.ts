@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Category } from "./../../models/category";
+import { ApiService } from "./../../services/api.service";
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-main-layout',
-  templateUrl: './main-layout.component.html',
-  styleUrls: ['./main-layout.component.scss']
+  selector: "app-main-layout",
+  templateUrl: "./main-layout.component.html",
+  styleUrls: ["./main-layout.component.scss"]
 })
-export class MainLayoutComponent implements OnInit {
+export class MainLayoutComponent {
+  toggleFlag = false;
+  categories;
 
-  constructor() { }
+  constructor(private apiService: ApiService) {}
 
-  ngOnInit() {
+  showMenu() {
+    this.apiService
+      .getCategories()
+      .subscribe(response => (response = this.categories));
+    this.toggleFlag = !this.toggleFlag;
   }
-
 }
