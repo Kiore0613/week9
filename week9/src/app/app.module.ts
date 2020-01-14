@@ -1,3 +1,5 @@
+import { AuthenticationModule } from './modules/authentication/authentication.module';
+import { LoginComponent } from './modules/authentication/components/login/login.component';
 import { MainLayoutModule } from './modules/main-layout/main-layout.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,7 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    MainLayoutModule
+    MainLayoutModule,
+    AuthenticationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
