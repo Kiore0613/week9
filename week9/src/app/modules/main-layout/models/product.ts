@@ -1,6 +1,6 @@
-import { Image } from "./image";
-import { Master } from "./master";
-import { Category } from "./category";
+import { Image } from './image';
+import { Master } from './master';
+import { Category } from './category';
 
 export interface Product {
   id: string;
