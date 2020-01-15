@@ -1,6 +1,6 @@
-import { Filter } from "./filter";
-import { Page } from "./page";
-import { ErrorResponse } from "./errorResponse";
+import { Filter } from './filter';
+import { Page } from './page';
+import { ErrorResponse } from './errorResponse';
 
 export interface ResponseFromApi<TResponse> {
   filter: Filter;
