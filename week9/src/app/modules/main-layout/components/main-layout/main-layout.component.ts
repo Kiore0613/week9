@@ -1,5 +1,3 @@
-import { Category } from "./../../models/category";
-import { ApiService } from "./../../services/api.service";
 import { Component } from "@angular/core";
 
 @Component({
@@ -9,15 +7,10 @@ import { Component } from "@angular/core";
 })
 export class MainLayoutComponent {
   toggleFlag = false;
-  categories: Category[];
 
-  constructor(private apiService: ApiService) {}
+  constructor() {}
 
   showMenu() {
-    this.apiService.getCategories().subscribe(response => {
-      this.categories = response;
-      console.log(this.categories);
-    });
     this.toggleFlag = !this.toggleFlag;
   }
 }

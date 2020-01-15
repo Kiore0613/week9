@@ -9,9 +9,7 @@
         />
       </a>
     </div>
-    <div class="category" *ngFor="let category of categories">
-      <p>{{ category.name }}</p>
-    </div>
+    <app-categories></app-categories>
   </mat-drawer>
   <mat-drawer-content>
     <router-outlet></router-outlet>
