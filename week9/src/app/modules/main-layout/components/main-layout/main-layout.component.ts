@@ -1,3 +1,4 @@
+import { map } from "rxjs/operators";
 import { Category } from "./../../models/category";
 import { ApiService } from "./../../services/api.service";
 import { Component } from "@angular/core";
@@ -9,14 +10,15 @@ import { Component } from "@angular/core";
 })
 export class MainLayoutComponent {
   toggleFlag = false;
-  categories;
+  categories: Category[];
 
   constructor(private apiService: ApiService) {}
 
   showMenu() {
-    this.apiService
-      .getCategories()
-      .subscribe(response => (response = this.categories));
+    this.apiService.getCategories().subscribe(response => {
+      this.categories = response;
+      console.log(this.categories);
+    });
     this.toggleFlag = !this.toggleFlag;
   }
 }
