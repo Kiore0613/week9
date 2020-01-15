@@ -11,7 +11,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { HttpClientModule } from "@angular/common/http";
-import { CategoriesComponent } from './categories/categories.component';
+import { CategoriesComponent } from "./components/categories/categories.component";
 
 @NgModule({
   declarations: [
