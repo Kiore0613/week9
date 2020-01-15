@@ -1,9 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class AuthService {
-
-  constructor() { }
+  private baseUrl: string;
+  constructor() {
+    this.baseUrl = "https://trainee-program.herokuapp.com/api";
+  }
 }
