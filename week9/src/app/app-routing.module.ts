@@ -1,29 +1,37 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-import { NotFoundComponent } from "./modules/shared/components/not-found/not-found.component";
+import { ProductsComponent } from './modules/main-layout/components/products/products.component';
+import { LoginComponent } from './modules/authentication/components/login/login.component';
+import { ProductDetailComponent } from './modules/main-layout/components/product-detail/product-detail.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { NotFoundComponent } from './modules/shared/components/not-found/not-found.component';
+import { MainLayoutComponent } from './modules/main-layout/components/main-layout/main-layout.component';
 
 const routes: Routes = [
   {
-    path: "",
-    pathMatch: "full",
-    redirectTo: "main"
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'main'
   },
   {
-    path: "main",
-    loadChildren: () =>
-      import("./modules/main-layout/main-layout.module").then(
-        module => module.MainLayoutModule
-      )
+    path: 'main',
+    component: MainLayoutComponent,
+    children: [
+      {
+        path: 'detail',
+        component: ProductDetailComponent
+      },
+      {
+        path: 'products',
+        component: ProductsComponent
+      }
+    ]
   },
   {
-    path: "authentication",
-    loadChildren: () =>
-      import("./modules/authentication/authentication.module").then(
-        module => module.AuthenticationModule
-      )
+    path: 'login',
+    component: LoginComponent
   },
   {
-    path: "**",
+    path: '**',
     component: NotFoundComponent
   }
 ];

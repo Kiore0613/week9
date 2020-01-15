@@ -1,0 +1,79 @@
+@import "styles/variables.scss";
+@import "styles/mixins.scss";
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.actions {
+  margin-top: auto;
+}
+
+.header-image {
+  background-size: cover;
+}
+
+@include screen-small {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  .card {
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+    img {
+      max-width: 100px;
+      width: inherit;
+      margin: 0 auto;
+      border-radius: 8px;
+    }
+  }
+}
+
+@include screen-medium {
+  .container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  .card {
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+    img {
+      max-width: 200px;
+      width: inherit;
+      margin: 0 auto;
+      border-radius: 8px;
+    }
+  }
+}
+
+@include screen-large {
+  .container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  .card {
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+    img {
+      max-width: 250px;
+      width: inherit;
+      margin: 0 auto;
+      border-radius: 8px;
+    }
+  }
+}

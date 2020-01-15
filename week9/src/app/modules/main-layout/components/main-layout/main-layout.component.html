@@ -1,1 +1,15 @@
-<app-navbar></app-navbar>
+<app-navbar (toggle)="showMenu()"></app-navbar>
+<mat-drawer-container class="container">
+  <mat-drawer mode="side" [opened]="toggleFlag" class="drawer">
+    <div class="image-container">
+      <a routerLink="/">
+        <img
+          src="https://www.accelerance.com/hubfs/Applaudo/Applaudo-Studios-1.png"
+          alt="Applaudo-logo"
+        />
+      </a>
+    </div>
+    <app-categories></app-categories>
+  </mat-drawer>
+  <router-outlet></router-outlet>
+</mat-drawer-container>
