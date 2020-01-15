@@ -1,5 +1,5 @@
 import { AuthService } from './../../services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -33,6 +33,6 @@ export class LoginComponent {
   login() {
     this.authService
       .login(this.form.value)
-      .subscribe(() => this.router.navigate(['']));
+      .subscribe(() => this.router.navigate(['main']));
   }
 }

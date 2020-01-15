@@ -15,11 +15,18 @@
     </mat-form-field>
     <mat-form-field class="input-container" appearance="outline">
       <mat-label>Password</mat-label>
-      <input matInput placeholder="Password" formControlName="password" />
+      <input
+        matInput
+        placeholder="Password"
+        type="password"
+        formControlName="password"
+      />
       <mat-error *ngIf="getControl('password').errors?.required">
         Password is <strong>required</strong>
       </mat-error>
     </mat-form-field>
-    <button mat-raised-button color="primary" class="btn">Login</button>
+    <button mat-raised-button color="primary" class="btn" (click)="login()">
+      Login
+    </button>
   </form>
 </div>
