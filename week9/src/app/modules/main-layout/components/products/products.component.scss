@@ -1,0 +1,39 @@
+@import "styles/variables.scss";
+@import "styles/mixins.scss";
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.actions {
+  margin-top: auto;
+}
+
+.header-image {
+  background-size: cover;
+}
+
+@include screen-small {
+}
+
+@include screen-medium {
+}
+
+@include screen-large {
+  .container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .card {
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+    img {
+      max-width: 250px;
+      width: inherit;
+      margin: 0 auto;
+      border-radius: 8px;
+    }
+  }
+}
