@@ -1,8 +1,10 @@
+@import "styles/variables.scss";
 .container {
-  margin: 8px;
-  border-bottom: dashed;
+  margin: 16px 8px;
+  border-bottom: 1px solid $black;
 }
 
 .category {
   margin-bottom: 24px;
+  font-size: 20px;
 }
