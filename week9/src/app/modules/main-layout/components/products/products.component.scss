@@ -4,7 +4,7 @@
 .container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 16px;
 }
 
 .actions {
@@ -16,9 +16,6 @@
 }
 
 @include screen-small {
-  .container {
-    grid-template-columns: 1fr;
-  }
   .actions {
     display: flex;
     justify-content: space-between;
@@ -59,7 +56,7 @@
 
 @include screen-large {
   .container {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
   .actions {
     display: flex;
