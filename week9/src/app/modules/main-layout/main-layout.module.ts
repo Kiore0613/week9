@@ -11,13 +11,15 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { HttpClientModule } from "@angular/common/http";
+import { CategoriesComponent } from './categories/categories.component';
 
 @NgModule({
   declarations: [
     MainLayoutComponent,
     ProfileComponent,
     ProductsComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    CategoriesComponent
   ],
   imports: [
     CommonModule,
