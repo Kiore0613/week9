@@ -1,0 +1,59 @@
+@import "styles/variables.scss";
+@import "styles/mixins.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.image {
+  img {
+    border-radius: 8px;
+  }
+  margin: 16px;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 16px;
+  background: $background-card;
+}
+
+.cart-detail {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+@include screen-small {
+}
+
+@include screen-medium {
+}
+
+@include screen-large {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .image {
+    img {
+      margin: 16px auto;
+      width: 80%;
+    }
+  }
+
+  .card-button {
+    padding: 0;
+  }
+
+  .input-container {
+    padding-bottom: 16px;
+  }
+}

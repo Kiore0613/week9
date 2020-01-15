@@ -1,37 +1,37 @@
-import { SharedModule } from './../shared/shared.module';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MainLayoutComponent } from './components/main-layout/main-layout.component';
-import { ProfileComponent } from './components/profile/profile.component';
-import { ProductsComponent } from './components/products/products.component';
-import { ProductDetailComponent } from './components/product-detail/product-detail.component';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from "@angular/router";
+import { SharedModule } from "./../shared/shared.module";
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { MainLayoutComponent } from "./components/main-layout/main-layout.component";
+import { ProfileComponent } from "./components/profile/profile.component";
+import { ProductsComponent } from "./components/products/products.component";
+import { ProductDetailComponent } from "./components/product-detail/product-detail.component";
+import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
+import { MatInputModule } from "@angular/material/input";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { HttpClientModule } from "@angular/common/http";
+import { CategoriesComponent } from './categories/categories.component';
 
-const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'home'
-  },
-  {
-    path: 'home',
-    component: MainLayoutComponent
-  },
-  {
-    path: 'products',
-    component: ProductsComponent
-  }
-];
 @NgModule({
   declarations: [
     MainLayoutComponent,
     ProfileComponent,
     ProductsComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    CategoriesComponent
   ],
-  imports: [CommonModule, RouterModule.forChild(routes), SharedModule],
-  exports: [
+  imports: [
+    CommonModule,
+    SharedModule,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule,
     RouterModule,
+    MatSidenavModule,
+    HttpClientModule
+  ],
+  exports: [
     MainLayoutComponent,
     ProfileComponent,
     ProductsComponent,
