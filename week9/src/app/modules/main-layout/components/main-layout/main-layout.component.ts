@@ -1,4 +1,3 @@
-import { map } from "rxjs/operators";
 import { Category } from "./../../models/category";
 import { ApiService } from "./../../services/api.service";
 import { Component } from "@angular/core";
