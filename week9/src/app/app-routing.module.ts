@@ -1,3 +1,4 @@
+import { ProductsComponent } from './modules/main-layout/components/products/products.component';
 import { LoginComponent } from './modules/authentication/components/login/login.component';
 import { ProductDetailComponent } from './modules/main-layout/components/product-detail/product-detail.component';
 import { NgModule } from '@angular/core';
@@ -18,6 +19,10 @@ const routes: Routes = [
       {
         path: 'detail',
         component: ProductDetailComponent
+      },
+      {
+        path: 'products',
+        component: ProductsComponent
       }
     ]
   },
