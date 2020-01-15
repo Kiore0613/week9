@@ -1,6 +1,8 @@
+import { ResponseFromApi } from "./../models/responseFromApi";
 import { Category } from "./../models/category";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
@@ -13,6 +15,8 @@ export class ApiService {
   }
 
   getCategories() {
-    return this.http.get<Category>(`${this.baseUrl}v1/categories`);
+    return this.http
+      .get(`${this.baseUrl}v1/categories`)
+      .pipe(map((response: ResponseFromApi<Category[]>) => response.data));
   }
 }
