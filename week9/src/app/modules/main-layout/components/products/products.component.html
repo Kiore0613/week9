@@ -1,7 +1,6 @@
 <div class="container">
   <mat-card *ngFor="let product of products" class="card">
     <mat-card-header>
-      <div mat-card-avatar class="header-image"></div>
       <mat-card-title>{{ product.name }}</mat-card-title>
       <mat-card-subtitle>{{ product.category.name }}</mat-card-subtitle>
     </mat-card-header>
@@ -19,7 +18,7 @@
     <mat-card-actions class="actions">
       <button mat-raised-button color="primary">LIKE</button>
       <button mat-raised-button color="primary">DISLIKE</button>
-      <button mat-raised-button color="primary">ADD CART</button>
+      <button mat-raised-button color="primary">ADD TO CART</button>
     </mat-card-actions>
   </mat-card>
 </div>
