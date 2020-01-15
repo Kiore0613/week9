@@ -22,13 +22,13 @@
   justify-content: center;
   align-items: center;
   margin: 16px;
+  border-radius: 8px;
   background: $background-card;
 }
 
 .cart-detail {
   display: flex;
   justify-content: space-between;
-  width: 80%;
 }
 
 @include screen-small {
@@ -40,7 +40,7 @@
 @include screen-large {
   .container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
   }
   .image {
     img {
