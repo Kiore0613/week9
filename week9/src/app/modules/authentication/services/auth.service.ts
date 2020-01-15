@@ -14,12 +14,8 @@ export class AuthService {
   }
 
   login(credentials: User) {
-    const { email, password } = credentials;
     const data = {
-      data: {
-        email,
-        password
-      }
+      data: credentials
     };
     console.log(data);
     return this.http
