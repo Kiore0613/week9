@@ -1,3 +1,4 @@
+import { MainLayoutRoutingModule } from './main-layout-routing.module';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
@@ -31,7 +32,8 @@ import { MatCardModule } from '@angular/material/card';
     RouterModule,
     MatSidenavModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule,
+    MainLayoutRoutingModule
   ],
   exports: [
     MainLayoutComponent,

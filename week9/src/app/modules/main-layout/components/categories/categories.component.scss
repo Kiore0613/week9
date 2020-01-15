@@ -1,10 +1,15 @@
 @import "styles/variables.scss";
 .container {
   margin: 16px 8px;
-  border-bottom: 1px solid $black;
+  border-bottom: 1px solid $background-input;
 }
 
 .category {
   margin-bottom: 24px;
   font-size: 20px;
+  color: $font-color;
+
+  &:hover {
+    color: $background-input;
+  }
 }

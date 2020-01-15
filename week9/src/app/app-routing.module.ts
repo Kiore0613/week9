@@ -1,6 +1,4 @@
-import { ProductsComponent } from './modules/main-layout/components/products/products.component';
 import { LoginComponent } from './modules/authentication/components/login/login.component';
-import { ProductDetailComponent } from './modules/main-layout/components/product-detail/product-detail.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './modules/shared/components/not-found/not-found.component';
@@ -15,16 +13,21 @@ const routes: Routes = [
   {
     path: 'main',
     component: MainLayoutComponent,
-    children: [
+    /*children: [
       {
-        path: 'detail',
+        path: "detail",
         component: ProductDetailComponent
+
       },
       {
-        path: 'products',
+        path: "products",
         component: ProductsComponent
       }
-    ]
+    ]*/
+    loadChildren: () =>
+      import(`./modules/main-layout/main-layout.module`).then(
+        m => m.MainLayoutModule
+      )
   },
   {
     path: 'login',

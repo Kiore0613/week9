@@ -1,25 +1,21 @@
-import { ResponseFromApi } from "./../../main-layout/models/responseFromApi";
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { User } from "../models/user";
-import { map } from "rxjs/operators";
+import { ResponseFromApi } from './../../main-layout/models/responseFromApi';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { User } from '../models/user';
+import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class AuthService {
   private baseUrl: string;
   constructor(private http: HttpClient) {
-    this.baseUrl = "https://trainee-program.herokuapp.com/api/v1/users/";
+    this.baseUrl = 'https://trainee-program.herokuapp.com/api/v1/users/';
   }
 
   login(credentials: User) {
-    const { email, password } = credentials;
     const data = {
-      data: {
-        email,
-        password
-      }
+      data: credentials
     };
     console.log(data);
     return this.http
