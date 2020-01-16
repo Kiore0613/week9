@@ -14,21 +14,23 @@ import { getProducts } from "src/app/store/selectors/product.selector";
   styleUrls: ["./products.component.scss"]
 })
 export class ProductsComponent implements OnInit {
-  products: Observable<Product[]> = this._store.pipe(select(getProducts));
+  products$: Observable<Product[]> = this.store.pipe(select(getProducts));
 
   constructor(
-    private _store: Store<AppProductState>,
+    private store: Store<AppProductState>,
     private apiService: ApiService,
     private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
+    console.log("testing");
     this.activatedRoute.queryParamMap.subscribe(param => {
-      let categoryId = +param.get("category");
-      if (categoryId) {
-        this.products = this.apiService.getProductsById(categoryId);
+      if (param.has("category")) {
+        const categoryId = +param.get("category");
+        this.products$ = this.apiService.getProductsById(categoryId);
       } else {
-        this._store.dispatch(new GetProductsAction());
+        this.products$ = this.store.pipe(select(getProducts));
+        this.store.dispatch(new GetProductsAction());
       }
     });
   }
