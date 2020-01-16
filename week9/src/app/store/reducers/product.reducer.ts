@@ -12,6 +12,9 @@ export const productReducer = (
     case EProductActions.GetProductsByCategorySuccess: {
       return { ...state, products: action.payload, error: null };
     }
+    case EProductActions.GetProductsByNameSuccess: {
+      return { ...state, products: action.payload, error: null };
+    }
     default:
       return state;
   }

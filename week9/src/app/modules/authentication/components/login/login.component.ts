@@ -1,12 +1,13 @@
-import { AuthService } from './../../services/auth.service';
-import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { AuthService } from "./../../services/auth.service";
+import { Component } from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { ToastService } from "src/app/core/services/toast.service";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent {
   form: FormGroup;
@@ -18,11 +19,11 @@ export class LoginComponent {
     private authService: AuthService
   ) {
     this.form = this.formBuilder.group({
-      email: this.formBuilder.control('', [
+      email: this.formBuilder.control("", [
         Validators.required,
         Validators.email
       ]),
-      password: this.formBuilder.control('', [Validators.required])
+      password: this.formBuilder.control("", [Validators.required])
     });
   }
 
@@ -33,6 +34,6 @@ export class LoginComponent {
   login() {
     this.authService
       .login(this.form.value)
-      .subscribe(() => this.router.navigate(['main']));
+      .subscribe(() => this.router.navigate(["main"]));
   }
 }

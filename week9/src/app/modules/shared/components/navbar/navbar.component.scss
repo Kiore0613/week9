@@ -8,6 +8,17 @@
   justify-content: space-between;
 }
 
+.form-input {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 8px;
+  height: 36px;
+  text-indent: 16px;
+  border: none;
+  border-radius: 12px;
+  color: $black;
+}
 .image-container {
   img {
     display: flex;

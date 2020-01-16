@@ -2,7 +2,15 @@
   <button mat-icon-button (click)="showMenu()">
     <mat-icon>menu</mat-icon>
   </button>
-  <h1>Week 9</h1>
+  <div class="search">
+    <input
+      #inputSearch
+      class="form-input"
+      type="text"
+      placeholder="Search"
+      (keyup)="search(inputSearch.value)"
+    />
+  </div>
   <div class="image-container">
     <img src="https://picsum.photos/200" alt="Applaudo-logo" />
   </div>

@@ -8,8 +8,3 @@ export const getProducts = createSelector(
   getProductState,
   (state: ProductState) => state.products
 );
-
-export const getProductsByCategory = createSelector(
-  getProductState,
-  (state: ProductState) => state.products
-);

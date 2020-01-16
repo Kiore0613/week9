@@ -1,12 +1,9 @@
 <app-navbar (toggle)="showMenu()"></app-navbar>
 <mat-drawer-container class="container">
   <mat-drawer mode="side" [opened]="toggleFlag" class="drawer">
-    <div class="image-container">
+    <div class="category-container">
       <a routerLink="/">
-        <img
-          src="https://www.accelerance.com/hubfs/Applaudo/Applaudo-Studios-1.png"
-          alt="Applaudo-logo"
-        />
+        <h1>All Categories</h1>
       </a>
     </div>
     <app-categories></app-categories>
