@@ -12,11 +12,13 @@ import { ToastService } from "src/app/core/services/toast.service";
 export class LoginComponent {
   form: FormGroup;
   isDisabled = false;
+  errorMessage: string;
 
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastService: ToastService
   ) {
     this.form = this.formBuilder.group({
       email: this.formBuilder.control("", [
@@ -32,8 +34,14 @@ export class LoginComponent {
   }
 
   login() {
-    this.authService
-      .login(this.form.value)
-      .subscribe(() => this.router.navigate(["main"]));
+    this.isDisabled = true;
+    this.authService.login(this.form.value).subscribe(() => {
+      this.router.navigate(["main"]),
+        error => {
+          this.errorMessage = error;
+          this.isDisabled = false;
+          this.toastService.showToast("this.errorMessage");
+        };
+    });
   }
 }
