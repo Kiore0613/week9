@@ -13,6 +13,7 @@ import { User } from "../models/user";
 })
 export class AuthService {
   private baseUrl: string;
+  private isLogged = false;
   user$ = new BehaviorSubject<User>(null);
   constructor(
     private http: HttpClient,
@@ -31,8 +32,20 @@ export class AuthService {
         map(response => {
           this.user$.next(response.data.user);
           this.localStorageService.setToken(response.data.token);
+          this.isLogged = true;
           return response.data;
         })
       );
+  }
+
+  logged() {
+    if (this.localStorageService.getToken()) {
+      this.isLogged = true;
+    }
+    return this.isLogged;
+  }
+
+  isLogIn() {
+    return this.localStorageService.hasToken();
   }
 }
