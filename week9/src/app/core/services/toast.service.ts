@@ -1,4 +1,4 @@
-import { ToastComponent } from "./../components/toast/toast.component";
+import { ToastComponent } from "../../modules/shared/components/toast/toast.component";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Injectable } from "@angular/core";
 

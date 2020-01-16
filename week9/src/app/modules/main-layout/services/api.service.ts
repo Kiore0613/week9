@@ -1,5 +1,5 @@
 import { Product } from "./../models/product";
-import { ResponseFromApi } from "../../shared/models/response-from-api";
+import { ResponseFromApi } from "../../../core/models/response-from-api";
 import { Category } from "./../models/category";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
@@ -26,6 +26,17 @@ export class ApiService {
       .get(
         `${this.baseUrl}/products?filter[category_id_eq]=${id}&include=image_attachment.blob,category,master`
       )
+      .pipe(map((response: ResponseFromApi<Product[]>) => response.data));
+  }
+
+  getProductsByName(name: string) {
+    return this.http
+      .get(`${this.baseUrl}/products`, {
+        params: {
+          ...(name && { "filter[name_count]": name }),
+          include: "image_attachment.blob,category,master"
+        }
+      })
       .pipe(map((response: ResponseFromApi<Product[]>) => response.data));
   }
 

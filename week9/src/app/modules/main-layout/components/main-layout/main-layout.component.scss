@@ -1,3 +1,5 @@
+@import "styles/variables.scss";
+
 .container {
   min-height: 700px;
 }
@@ -9,16 +11,7 @@
   align-items: center;
 }
 
-.image-container {
-  img {
-    display: flex;
-    justify-content: center;
-    margin: 16px;
-    width: 60px;
-    height: 60px;
-    background: none;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-  }
+.category-container {
+  margin: 8px;
+  cursor: pointer;
 }
