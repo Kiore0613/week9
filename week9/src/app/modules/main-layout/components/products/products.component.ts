@@ -1,12 +1,17 @@
-import { GetProductsAction } from "./../../../../store/actions/product.actions";
+import {
+  GetProductsAction,
+  GetProductsByCategoryAction
+} from "./../../../../store/actions/product.actions";
 import { Product } from "./../../models/product";
 import { Component, OnInit } from "@angular/core";
-import { ApiService } from "../../services/api.service";
 import { ActivatedRoute } from "@angular/router";
-import { Observable } from "rxjs";
+import { Observable, BehaviorSubject } from "rxjs";
 import { Store, select } from "@ngrx/store";
 import { AppProductState } from "src/app/store/states/app.state";
-import { getProducts } from "src/app/store/selectors/product.selector";
+import {
+  getProducts,
+  getProductsByCategory
+} from "src/app/store/selectors/product.selector";
 
 @Component({
   selector: "app-products",
@@ -14,21 +19,20 @@ import { getProducts } from "src/app/store/selectors/product.selector";
   styleUrls: ["./products.component.scss"]
 })
 export class ProductsComponent implements OnInit {
-  products: Observable<Product[]> = this._store.pipe(select(getProducts));
+  products$: Observable<Product[]> = this.store.pipe(select(getProducts));
 
   constructor(
-    private _store: Store<AppProductState>,
-    private apiService: ApiService,
+    private store: Store<AppProductState>,
     private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
     this.activatedRoute.queryParamMap.subscribe(param => {
-      let categoryId = +param.get("category");
-      if (categoryId) {
-        this.products = this.apiService.getProductsById(categoryId);
+      if (param.has("category")) {
+        const categoryId = Number(param.get("category"));
+        this.store.dispatch(new GetProductsByCategoryAction(categoryId));
       } else {
-        this._store.dispatch(new GetProductsAction());
+        this.store.dispatch(new GetProductsAction());
       }
     });
   }

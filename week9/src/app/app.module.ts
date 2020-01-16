@@ -1,3 +1,4 @@
+import { ToastComponent } from "./modules/shared/components/toast/toast.component";
 import { appEffects } from "./store/effects/app.effect";
 import { AuthenticationModule } from "./modules/authentication/authentication.module";
 import { MainLayoutModule } from "./modules/main-layout/main-layout.module";
@@ -11,8 +12,10 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { StoreModule } from "@ngrx/store";
 import { reducers, metaReducers } from "./store/reducers";
 import { EffectsModule } from "@ngrx/effects";
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { environment } from "../environments/environment";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { AuthInterceptor } from "./interceptors/auth.interceptor";
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,9 +34,19 @@ import { environment } from '../environments/environment';
       }
     }),
     EffectsModule.forRoot(appEffects),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    })
   ],
-  providers: [],
+  entryComponents: [ToastComponent],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

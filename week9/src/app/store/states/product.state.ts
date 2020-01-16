@@ -1,4 +1,4 @@
-import { Product } from "src/app/modules/main-layout/models/product";
+import { Product } from 'src/app/modules/main-layout/models/product';
 
 export interface ProductState {
   products: Product[];
