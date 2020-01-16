@@ -35,13 +35,13 @@ export class LoginComponent {
 
   login() {
     this.isDisabled = true;
-    this.authService.login(this.form.value).subscribe(() => {
-      this.router.navigate(["main"]),
-        error => {
-          this.errorMessage = error;
-          this.isDisabled = false;
-          this.toastService.showToast("this.errorMessage");
-        };
-    });
+    this.authService.login(this.form.value).subscribe(
+      () => this.router.navigate(["main"]),
+      error => {
+        this.errorMessage = error;
+        this.isDisabled = false;
+        this.toastService.showToast("this.errorMessage");
+      }
+    );
   }
 }
