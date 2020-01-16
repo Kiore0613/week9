@@ -1,3 +1,4 @@
+import { ToastComponent } from "./modules/shared/components/toast/toast.component";
 import { appEffects } from "./store/effects/app.effect";
 import { AuthenticationModule } from "./modules/authentication/authentication.module";
 import { MainLayoutModule } from "./modules/main-layout/main-layout.module";
@@ -38,6 +39,7 @@ import { AuthInterceptor } from "./interceptors/auth.interceptor";
       logOnly: environment.production
     })
   ],
+  entryComponents: [ToastComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
