@@ -1,7 +1,7 @@
 import { UserResponse } from "./../models/user-response";
 import { Credential } from "../models/credential";
 import { LocalStorageService } from "./local-storage.service";
-import { ResponseFromApi } from "../../shared/models/responseFromApi";
+import { ResponseFromApi } from "../../shared/models/response-from-api";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
