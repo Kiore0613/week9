@@ -3,7 +3,9 @@
     <div class="product-grid">
       <mat-card *ngFor="let product of products" class="card">
         <mat-card-header>
-          <mat-card-title>{{ product.name }}</mat-card-title>
+          <mat-card-title>
+            <a>{{ product.name }}</a>
+          </mat-card-title>
           <mat-card-subtitle>{{ product.category.name }}</mat-card-subtitle>
         </mat-card-header>
         <img
