@@ -5,13 +5,11 @@ import {
 import { Product } from "./../../models/product";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { Observable, BehaviorSubject } from "rxjs";
+import { Observable } from "rxjs";
 import { Store, select } from "@ngrx/store";
 import { AppProductState } from "src/app/store/states/app.state";
-import {
-  getProducts,
-  getProductsByCategory
-} from "src/app/store/selectors/product.selector";
+import { getProducts } from "src/app/store/selectors/product.selector";
+import { ToastService } from "src/app/modules/shared/services/toast.service";
 
 @Component({
   selector: "app-products",
@@ -23,12 +21,14 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private store: Store<AppProductState>,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private toastService: ToastService
   ) {}
 
   ngOnInit() {
     this.activatedRoute.queryParamMap.subscribe(param => {
       if (param.has("category")) {
+        this.toastService.showToast("error");
         const categoryId = Number(param.get("category"));
         this.store.dispatch(new GetProductsByCategoryAction(categoryId));
       } else {
