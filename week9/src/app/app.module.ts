@@ -1,3 +1,4 @@
+import { appEffects } from "./store/effects/app.effect";
 import { AuthenticationModule } from "./modules/authentication/authentication.module";
 import { MainLayoutModule } from "./modules/main-layout/main-layout.module";
 import { SharedModule } from "./modules/shared/shared.module";
@@ -9,8 +10,9 @@ import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { StoreModule } from "@ngrx/store";
 import { reducers, metaReducers } from "./store/reducers";
-import { EffectsModule } from '@ngrx/effects';
-import { AppEffects } from './app.effects';
+import { EffectsModule } from "@ngrx/effects";
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +30,8 @@ import { AppEffects } from './app.effects';
         strictActionImmutability: true
       }
     }),
-    EffectsModule.forRoot([AppEffects])
+    EffectsModule.forRoot(appEffects),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
