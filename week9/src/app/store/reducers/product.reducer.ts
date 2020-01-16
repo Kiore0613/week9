@@ -1,5 +1,5 @@
-import { EProductActions, ProductActions } from "./../actions/product.actions";
-import { ProductState, initialProductState } from "./../states/product.state";
+import { EProductActions, ProductActions } from './../actions/product.actions';
+import { ProductState, initialProductState } from './../states/product.state';
 
 export const productReducer = (
   state: ProductState = initialProductState,

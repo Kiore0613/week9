@@ -1,10 +1,10 @@
-import { Product } from "src/app/modules/main-layout/models/product";
-import { Action } from "@ngrx/store";
+import { Product } from 'src/app/modules/main-layout/models/product';
+import { Action } from '@ngrx/store';
 
 export enum EProductActions {
-  GetProducts = "[Product] Get Products",
-  GetProductsFailure = "[Product] Get ProductsFailure",
-  GetProductsSuccess = "[Product] Get ProductsSuccess"
+  GetProducts = '[Product] Get Products',
+  GetProductsFailure = '[Product] Get ProductsFailure',
+  GetProductsSuccess = '[Product] Get ProductsSuccess'
 }
 
 export class GetProductsAction implements Action {
