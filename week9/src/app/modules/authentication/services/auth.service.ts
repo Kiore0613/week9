@@ -3,9 +3,9 @@ import { Credential } from "../models/credential";
 import { LocalStorageService } from "./local-storage.service";
 import { ResponseFromApi } from "../../../core/models/response-from-api";
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { map } from "rxjs/operators";
-import { BehaviorSubject } from "rxjs";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { map, catchError } from "rxjs/operators";
+import { BehaviorSubject, throwError } from "rxjs";
 import { User } from "../models/user";
 
 @Injectable({
@@ -15,6 +15,7 @@ export class AuthService {
   private baseUrl: string;
   private isLogged = false;
   user$ = new BehaviorSubject<User>(null);
+
   constructor(
     private http: HttpClient,
     private localStorageService: LocalStorageService
@@ -32,9 +33,9 @@ export class AuthService {
         map(response => {
           this.user$.next(response.data.user);
           this.localStorageService.setToken(response.data.token);
-          this.isLogged = true;
-          return response.data;
-        })
+          return response.data, (this.isLogged = true);
+        }),
+        catchError(error => this.handleErrorLogin(error))
       );
   }
 
@@ -45,7 +46,21 @@ export class AuthService {
     return this.isLogged;
   }
 
+  logout() {
+    return this.localStorageService.removeToken();
+  }
+
   isLogIn() {
     return this.localStorageService.hasToken();
+  }
+
+  handleErrorLogin(error: HttpErrorResponse) {
+    let errorMessage = "";
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      errorMessage = `The email or password you’ve entered doesn’t match any account`;
+    }
+    return throwError(errorMessage);
   }
 }
