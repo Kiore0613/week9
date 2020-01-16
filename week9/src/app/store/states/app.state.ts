@@ -1,4 +1,4 @@
-import { ProductState, initialProductState } from "./product.state";
+import { ProductState, initialProductState } from './product.state';
 
 export interface AppProductState {
   products: ProductState;

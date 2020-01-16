@@ -1,5 +1,5 @@
 import { Product } from "./../models/product";
-import { ResponseFromApi } from "./../models/responseFromApi";
+import { ResponseFromApi } from "../../shared/models/response-from-api";
 import { Category } from "./../models/category";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
