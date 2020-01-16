@@ -1,5 +1,5 @@
-import { EProductActions, ProductActions } from './../actions/product.actions';
-import { ProductState, initialProductState } from './../states/product.state';
+import { EProductActions, ProductActions } from "./../actions/product.actions";
+import { ProductState, initialProductState } from "./../states/product.state";
 
 export const productReducer = (
   state: ProductState = initialProductState,
@@ -7,6 +7,9 @@ export const productReducer = (
 ): ProductState => {
   switch (action.type) {
     case EProductActions.GetProductsSuccess: {
+      return { ...state, products: action.payload, error: null };
+    }
+    case EProductActions.GetProductsByCategorySuccess: {
       return { ...state, products: action.payload, error: null };
     }
     default:

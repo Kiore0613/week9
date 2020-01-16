@@ -1,10 +1,15 @@
-import { ProductState } from './../states/product.state';
-import { AppProductState } from './../states/app.state';
-import { createSelector } from '@ngrx/store';
+import { ProductState } from "./../states/product.state";
+import { AppProductState } from "./../states/app.state";
+import { createSelector } from "@ngrx/store";
 
-export const getProductSate = (state: AppProductState) => state.products;
+export const getProductState = (state: AppProductState) => state.products;
 
 export const getProducts = createSelector(
-  getProductSate,
+  getProductState,
+  (state: ProductState) => state.products
+);
+
+export const getProductsByCategory = createSelector(
+  getProductState,
   (state: ProductState) => state.products
 );
