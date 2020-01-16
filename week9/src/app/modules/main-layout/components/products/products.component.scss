@@ -1,9 +1,6 @@
 @import "styles/variables.scss";
 @import "styles/mixins.scss";
 
-.container {
-}
-
 .product-grid {
   display: grid;
   width: 100%;
@@ -31,7 +28,7 @@
     img {
       width: 250px;
       height: 250px;
-      margin: 0 auto;
+      margin: 16px auto;
       border-radius: 8px;
     }
   }
@@ -49,7 +46,7 @@
     img {
       max-width: 200px;
       width: inherit;
-      margin: 0 auto;
+      margin: 16px auto;
       border-radius: 8px;
     }
   }
@@ -67,7 +64,7 @@
     img {
       max-width: 250px;
       width: inherit;
-      margin: 0 auto;
+      margin: 16px auto;
       border-radius: 8px;
     }
   }

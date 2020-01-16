@@ -10,7 +10,10 @@ import {
   GetProductsByCategoryAction,
   GetProductsSuccessAction,
   GetProductsFailureAction,
-  GetProductsAction
+  GetProductsAction,
+  GetProductsByNameFailureAction,
+  GetProductsByNameSuccessAction,
+  GetProductsByNameAction
 } from "../actions/product.actions";
 import { of } from "rxjs";
 
@@ -34,5 +37,13 @@ export class ProductEffects {
       of(new GetProductsByCategorySuccessAction(categories))
     ),
     catchError(error => of(new GetProductsByCategoryFailureAction(error)))
+  );
+
+  @Effect()
+  getProductsByName$ = this.actions.pipe(
+    ofType<GetProductsByNameAction>(EProductActions.getProductsByName),
+    switchMap(action => this.apiService.getProductsByName(action.payload.name)),
+    switchMap(product => of(new GetProductsByNameSuccessAction(product))),
+    catchError(error => of(new GetProductsByNameFailureAction(error)))
   );
 }
