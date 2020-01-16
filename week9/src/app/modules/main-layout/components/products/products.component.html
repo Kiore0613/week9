@@ -1,5 +1,5 @@
 <div class="container">
-  <mat-card *ngFor="let product of products" class="card">
+  <mat-card *ngFor="let product of products | async" class="card">
     <mat-card-header>
       <mat-card-title>{{ product.name }}</mat-card-title>
       <mat-card-subtitle>{{ product.category.name }}</mat-card-subtitle>

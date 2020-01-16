@@ -1,7 +1,12 @@
+import { GetProductsAction } from "./../../../../store/actions/product.actions";
 import { Product } from "./../../models/product";
 import { Component, OnInit } from "@angular/core";
 import { ApiService } from "../../services/api.service";
 import { ActivatedRoute } from "@angular/router";
+import { Observable } from "rxjs";
+import { Store, select } from "@ngrx/store";
+import { AppProductState } from "src/app/store/states/app.state";
+import { getProducts } from "src/app/store/selectors/product.selector";
 
 @Component({
   selector: "app-products",
@@ -9,9 +14,10 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ["./products.component.scss"]
 })
 export class ProductsComponent implements OnInit {
-  products: Product[] = [];
+  products: Observable<Product[]> = this._store.pipe(select(getProducts));
 
   constructor(
+    private _store: Store<AppProductState>,
     private apiService: ApiService,
     private activatedRoute: ActivatedRoute
   ) {}
@@ -20,16 +26,9 @@ export class ProductsComponent implements OnInit {
     this.activatedRoute.queryParamMap.subscribe(param => {
       let categoryId = +param.get("category");
       if (categoryId) {
-        this.apiService.getProductsById(categoryId).subscribe(response => {
-          this.products = response;
-          console.log(response);
-        });
-        console.log("inside if");
+        this.products = this.apiService.getProductsById(categoryId);
       } else {
-        this.apiService
-          .getProducts()
-          .subscribe(response => (this.products = response));
-        console.log("inside else");
+        this._store.dispatch(new GetProductsAction());
       }
     });
   }
