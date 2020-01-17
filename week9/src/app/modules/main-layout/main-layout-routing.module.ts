@@ -10,7 +10,7 @@ const routes: Routes = [
     redirectTo: "products"
   },
   {
-    path: "detail",
+    path: "detail/:slug",
     component: ProductDetailComponent
   },
   {
