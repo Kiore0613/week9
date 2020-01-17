@@ -5,7 +5,7 @@ import {
   GetProductsByNameAction
 } from "./../../../../store/actions/product.actions";
 import { Product } from "./../../models/product";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Observable, BehaviorSubject } from "rxjs";
 import { Store, select } from "@ngrx/store";
