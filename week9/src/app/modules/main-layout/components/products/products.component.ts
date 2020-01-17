@@ -1,3 +1,5 @@
+import { ApiService } from "./../../services/api.service";
+import { AuthService } from "./../../../authentication/services/auth.service";
 import {
   GetProductsAction,
   GetProductsByCategoryAction,
@@ -10,7 +12,6 @@ import { Observable, BehaviorSubject } from "rxjs";
 import { Store, select } from "@ngrx/store";
 import { AppProductState } from "src/app/store/states/app.state";
 import { getProducts } from "src/app/store/selectors/product.selector";
-import { ToastService } from "src/app/core/services/toast.service";
 import { debounceTime, distinctUntilChanged } from "rxjs/operators";
 
 @Component({
@@ -19,25 +20,36 @@ import { debounceTime, distinctUntilChanged } from "rxjs/operators";
   styleUrls: ["./products.component.scss"]
 })
 export class ProductsComponent implements OnInit {
+  isDisabled = false;
   products$: Observable<Product[]> = this.store.pipe(select(getProducts));
   private searchProduct = new BehaviorSubject<string>("");
 
   constructor(
     private store: Store<AppProductState>,
     private activatedRoute: ActivatedRoute,
-    private toastService: ToastService
+    private authService: AuthService,
+    private apiService: ApiService
   ) {}
 
   ngOnInit() {
+    if (!this.authService.isLogIn()) {
+      this.isDisabled = true;
+    }
     this.searchProductSubject();
     this.activatedRoute.queryParamMap.subscribe(param => {
       if (param.has("category")) {
-        this.toastService.showToast("error");
         const categoryId = Number(param.get("category"));
         this.store.dispatch(new GetProductsByCategoryAction(categoryId));
       } else {
         this.store.dispatch(new GetProductsAction());
       }
+    });
+  }
+
+  redirectToDetail() {
+    this.activatedRoute.queryParamMap.subscribe(param => {
+      const name = param.get("name");
+      this.apiService.getProductsByName(name);
     });
   }
 
