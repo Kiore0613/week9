@@ -1,15 +1,16 @@
-<div class="container">
+<div class="container" *ngIf="productDetail">
   <div class="image">
-    <img src="https://picsum.photos/200" alt="" />
+    <img
+      [src]="productDetail.image?.url || 'https://bit.ly/2u5qHvL'"
+      alt="Image product"
+    />
   </div>
   <div class="detail">
-    <p>Product Name: Pyum</p>
+    <p>{{ productDetail?.name }}</p>
     <p>
-      Descripcion: Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Facilis explicabo eveniet in, non placeat, beatae nihil odio ea ducimus
-      tempora !
+      {{ productDetail.description }}
     </p>
-    <p>categoria: Pyum</p>
+    <p>{{ productDetail.category?.name }}</p>
     <div class="cart-detail">
       <mat-form-field class="input-container" appearance="outline">
         <mat-label>Quantity</mat-label>
