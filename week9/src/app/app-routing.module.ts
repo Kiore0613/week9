@@ -15,7 +15,7 @@ const routes: Routes = [
     path: "main",
     component: MainLayoutComponent,
     loadChildren: () =>
-      import(`./modules/main-layout/main-layout.module`).then(
+      import("./modules/main-layout/main-layout.module").then(
         m => m.MainLayoutModule
       )
   },
