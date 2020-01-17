@@ -1,4 +1,3 @@
-import { LikeDislike } from "./../../models/like-dislike";
 import { ApiService } from "./../../services/api.service";
 import { AuthService } from "./../../../authentication/services/auth.service";
 import { Component, OnInit, Input } from "@angular/core";
