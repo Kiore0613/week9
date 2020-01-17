@@ -1,5 +1,4 @@
 import { ApiService } from "./../../services/api.service";
-import { AuthService } from "./../../../authentication/services/auth.service";
 import {
   GetProductsAction,
   GetProductsByCategoryAction,
@@ -20,21 +19,16 @@ import { debounceTime, distinctUntilChanged } from "rxjs/operators";
   styleUrls: ["./products.component.scss"]
 })
 export class ProductsComponent implements OnInit {
-  isDisabled = false;
   products$: Observable<Product[]> = this.store.pipe(select(getProducts));
   private searchProduct = new BehaviorSubject<string>("");
 
   constructor(
     private store: Store<AppProductState>,
     private activatedRoute: ActivatedRoute,
-    private authService: AuthService,
     private apiService: ApiService
   ) {}
 
   ngOnInit() {
-    if (!this.authService.isLogIn()) {
-      this.isDisabled = true;
-    }
     this.searchProductSubject();
     this.activatedRoute.queryParamMap.subscribe(param => {
       if (param.has("category")) {

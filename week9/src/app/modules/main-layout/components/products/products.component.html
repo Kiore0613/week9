@@ -23,15 +23,7 @@
           </p>
           <p>Price: {{ product.master.price | currency }}</p>
         </mat-card-content>
-        <mat-card-actions class="actions">
-          <button mat-raised-button color="primary" [disabled]="isDisabled">
-            LIKE
-          </button>
-          <button mat-raised-button color="primary" [disabled]="isDisabled">
-            DISLIKE
-          </button>
-          <button mat-raised-button color="primary">ADD TO CART</button>
-        </mat-card-actions>
+        <app-like-dislike></app-like-dislike>
       </mat-card>
     </div>
   </ng-container>
