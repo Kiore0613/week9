@@ -13,6 +13,13 @@
     />
   </div>
   <div class="image-container">
-    <img src="https://picsum.photos/200" alt="Applaudo-logo" />
+    <img
+      (click)="showProfile()"
+      src="https://picsum.photos/200"
+      alt="Applaudo-logo"
+    />
   </div>
 </mat-toolbar>
+<div class="profile" [hidden]="isHidden">
+  <app-profile></app-profile>
+</div>

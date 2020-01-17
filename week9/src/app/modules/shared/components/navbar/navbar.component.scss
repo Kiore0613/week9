@@ -1,6 +1,9 @@
 @import "styles/variables.scss";
 @import "styles/mixins.scss";
 
+.profile {
+  position: absolute;
+}
 .nav-home {
   background: "primary";
   display: flex;

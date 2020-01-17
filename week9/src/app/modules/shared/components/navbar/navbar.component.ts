@@ -7,6 +7,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent {
+  isHidden = true;
   constructor(private router: Router) {}
 
   @Output() toggle = new EventEmitter();
@@ -15,6 +16,11 @@ export class NavbarComponent {
   showMenu() {
     this.toggle.emit();
   }
+
+  showProfile() {
+    this.isHidden = !this.isHidden;
+  }
+
   searchProduct(name: string) {
     this.search.emit(name);
   }
