@@ -1,5 +1,7 @@
+import { LikeDislike } from "./../../models/like-dislike";
+import { ApiService } from "./../../services/api.service";
 import { AuthService } from "./../../../authentication/services/auth.service";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 
 @Component({
   selector: "app-like-dislike",
@@ -8,12 +10,24 @@ import { Component, OnInit } from "@angular/core";
 })
 export class LikeDislikeComponent implements OnInit {
   isDisabled = false;
+  @Input() idProduct: number;
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private apiService: ApiService
+  ) {}
 
   ngOnInit() {
     if (!this.authService.isLogIn()) {
       this.isDisabled = true;
     }
   }
+
+  like() {
+    this.apiService
+      .likesDislike(this.idProduct, 1)
+      .subscribe(actions => console.log(actions));
+  }
+
+  dislike() {}
 }

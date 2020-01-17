@@ -13,6 +13,8 @@ import { User } from "../models/user";
 })
 export class AuthService {
   private baseUrl: string;
+  logIn = new BehaviorSubject<boolean>(false);
+  readonly logIn$ = this.logIn.asObservable();
   private isLogged = false;
   user$ = new BehaviorSubject<User>(null);
 
@@ -21,6 +23,7 @@ export class AuthService {
     private localStorageService: LocalStorageService
   ) {
     this.baseUrl = "https://trainee-program.herokuapp.com/api/v1/users/";
+    this.logIn.next(this.isLogIn());
   }
 
   login(credentials: Credential) {
@@ -42,15 +45,18 @@ export class AuthService {
   logged() {
     if (this.localStorageService.getToken()) {
       this.isLogged = true;
+      this.logIn.next(true);
     }
     return this.isLogged;
   }
 
   logout() {
+    this.logIn.next(false);
     return this.localStorageService.removeToken();
   }
 
   isLogIn() {
+    this.logIn.next(this.localStorageService.hasToken());
     return this.localStorageService.hasToken();
   }
 

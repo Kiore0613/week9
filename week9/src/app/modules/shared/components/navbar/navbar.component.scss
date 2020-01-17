@@ -1,8 +1,19 @@
 @import "styles/variables.scss";
 @import "styles/mixins.scss";
 
+.profile-container {
+  position: relative;
+}
+
 .profile {
+  z-index: 1000;
   position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  top: 0;
+  right: 5%;
+  top: 90%;
 }
 .nav-home {
   background: "primary";

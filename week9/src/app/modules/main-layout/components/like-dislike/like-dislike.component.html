@@ -4,6 +4,7 @@
     class="button"
     color="primary"
     [disabled]="isDisabled"
+    (click)="like()"
   >
     LIKE
   </button>
@@ -12,6 +13,7 @@
     class="button"
     color="primary"
     [disabled]="isDisabled"
+    (click)="dislike()"
   >
     DISLIKE
   </button>

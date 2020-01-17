@@ -1,3 +1,4 @@
+import { RouterModule } from "@angular/router";
 import { ProfileComponent } from "./components/profile/profile.component";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
@@ -27,7 +28,8 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
     MatIconModule,
     MatButtonModule,
     MatSnackBarModule,
-    MatInputModule
+    MatInputModule,
+    RouterModule
   ],
   exports: [NotFoundComponent, NavbarComponent, ProfileComponent]
 })
