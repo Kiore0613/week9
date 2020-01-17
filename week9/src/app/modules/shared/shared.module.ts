@@ -1,3 +1,4 @@
+import { ProfileComponent } from "./components/profile/profile.component";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { NgModule } from "@angular/core";
@@ -12,7 +13,12 @@ import { ToastComponent } from "./components/toast/toast.component";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 @NgModule({
-  declarations: [NotFoundComponent, NavbarComponent, ToastComponent],
+  declarations: [
+    NotFoundComponent,
+    NavbarComponent,
+    ToastComponent,
+    ProfileComponent
+  ],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -23,6 +29,6 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
     MatSnackBarModule,
     MatInputModule
   ],
-  exports: [NotFoundComponent, NavbarComponent]
+  exports: [NotFoundComponent, NavbarComponent, ProfileComponent]
 })
 export class SharedModule {}
