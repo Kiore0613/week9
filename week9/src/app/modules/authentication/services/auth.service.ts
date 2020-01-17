@@ -23,7 +23,7 @@ export class AuthService {
     private localStorageService: LocalStorageService
   ) {
     this.baseUrl = "https://trainee-program.herokuapp.com/api/v1/users/";
-    this.logged();
+    this.logIn.next(this.isLogIn());
   }
 
   login(credentials: Credential) {
@@ -56,6 +56,7 @@ export class AuthService {
   }
 
   isLogIn() {
+    this.logIn.next(this.localStorageService.hasToken());
     return this.localStorageService.hasToken();
   }
 

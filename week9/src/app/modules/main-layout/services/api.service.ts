@@ -40,12 +40,9 @@ export class ApiService {
 
   getProductsByName(name: string) {
     return this.http
-      .get(`${this.baseUrl}/products`, {
-        params: {
-          ...(name && { "filter[name_count]": name }),
-          include: "image_attachment.blob,category,master"
-        }
-      })
+      .get(
+        `${this.baseUrl}/products?filter[name_cont]=${name}&include=image_attachment.blob,category,master`
+      )
       .pipe(map((response: ResponseFromApi<Product[]>) => response.data));
   }
 
