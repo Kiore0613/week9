@@ -13,13 +13,15 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { HttpClientModule } from "@angular/common/http";
 import { CategoriesComponent } from "./components/categories/categories.component";
 import { MatCardModule } from "@angular/material/card";
+import { LikeDislikeComponent } from './components/like-dislike/like-dislike.component';
 
 @NgModule({
   declarations: [
     MainLayoutComponent,
     ProductsComponent,
     ProductDetailComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    LikeDislikeComponent
   ],
   imports: [
     CommonModule,
