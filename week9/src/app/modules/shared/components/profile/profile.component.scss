@@ -18,10 +18,10 @@
 .card-profile {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  width: fit-content;
+  width: 250px;
   padding: 16px;
   margin: 8px auto 0 auto;
-  background-color: rgba($color: $font-color, $alpha: 0.3);
+  background: $background-card;
   border-radius: 8px;
 }
 
@@ -81,7 +81,6 @@
 
 @include screen-medium {
   .card-profile {
-    position: absolute;
     margin-top: 24px;
     right: 24px;
   }
@@ -89,7 +88,6 @@
 
 @include screen-large {
   .card-profile {
-    position: absolute;
     right: 24px;
   }
 }

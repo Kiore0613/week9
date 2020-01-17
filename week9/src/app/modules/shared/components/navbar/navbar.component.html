@@ -12,14 +12,25 @@
       (keyup)="searchProduct(inputSearch.value)"
     />
   </div>
-  <div class="image-container">
-    <img
-      (click)="showProfile()"
-      src="https://picsum.photos/200"
-      alt="Applaudo-logo"
-    />
+
+  <div class="profile-container" *ngIf="isLogin$ | async; else notLogged">
+    <div class="image-container">
+      <img
+        (click)="showProfile()"
+        src="https://picsum.photos/200"
+        alt="Applaudo-logo"
+      />
+    </div>
+    <div class="profile" [hidden]="isHidden">
+      <app-profile></app-profile>
+    </div>
   </div>
+  <ng-template #notLogged>
+    <a routerLink="/login" mat-button>
+      Login
+    </a>
+  </ng-template>
 </mat-toolbar>
-<div class="profile" [hidden]="isHidden">
+<!--<div class="profile" [hidden]="isHidden">
   <app-profile></app-profile>
-</div>
+</div> -->

@@ -1,4 +1,3 @@
-import { LikeDislike } from "./../models/like-dislike";
 import { Product } from "./../models/product";
 import { ResponseFromApi } from "../../../core/models/response-from-api";
 import { Category } from "./../models/category";
