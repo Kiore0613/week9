@@ -1,12 +1,14 @@
-<app-navbar (toggle)="showMenu()"></app-navbar>
-<mat-drawer-container class="container">
-  <mat-drawer mode="side" [opened]="toggleFlag" class="drawer">
-    <div class="category-container">
-      <a routerLink="/">
-        <h1>All Categories</h1>
-      </a>
-    </div>
-    <app-categories></app-categories>
-  </mat-drawer>
-  <router-outlet></router-outlet>
-</mat-drawer-container>
+<div class="main-container">
+  <app-navbar (toggle)="showMenu()"></app-navbar>
+  <mat-drawer-container class="container">
+    <mat-drawer mode="side" [opened]="toggleFlag" class="drawer">
+      <div class="category-container">
+        <a routerLink="/">
+          <h1>All Categories</h1>
+        </a>
+      </div>
+      <app-categories></app-categories>
+    </mat-drawer>
+    <router-outlet></router-outlet>
+  </mat-drawer-container>
+</div>

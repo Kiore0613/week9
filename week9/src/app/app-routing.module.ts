@@ -1,3 +1,4 @@
+import { AuthorizedGuard } from "./modules/authentication/guards/authorized.guard";
 import { LoginComponent } from "./modules/authentication/components/login/login.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
@@ -20,7 +21,8 @@ const routes: Routes = [
   },
   {
     path: "login",
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [AuthorizedGuard]
   },
   {
     path: "**",

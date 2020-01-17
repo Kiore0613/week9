@@ -1,3 +1,4 @@
+import { ApiService } from "./../../services/api.service";
 import {
   GetProductsAction,
   GetProductsByCategoryAction,
@@ -10,7 +11,6 @@ import { Observable, BehaviorSubject } from "rxjs";
 import { Store, select } from "@ngrx/store";
 import { AppProductState } from "src/app/store/states/app.state";
 import { getProducts } from "src/app/store/selectors/product.selector";
-import { ToastService } from "src/app/core/services/toast.service";
 import { debounceTime, distinctUntilChanged } from "rxjs/operators";
 
 @Component({
@@ -25,19 +25,25 @@ export class ProductsComponent implements OnInit {
   constructor(
     private store: Store<AppProductState>,
     private activatedRoute: ActivatedRoute,
-    private toastService: ToastService
+    private apiService: ApiService
   ) {}
 
   ngOnInit() {
     this.searchProductSubject();
     this.activatedRoute.queryParamMap.subscribe(param => {
       if (param.has("category")) {
-        this.toastService.showToast("error");
         const categoryId = Number(param.get("category"));
         this.store.dispatch(new GetProductsByCategoryAction(categoryId));
       } else {
         this.store.dispatch(new GetProductsAction());
       }
+    });
+  }
+
+  redirectToDetail() {
+    this.activatedRoute.queryParamMap.subscribe(param => {
+      const name = param.get("name");
+      this.apiService.getProductsByName(name);
     });
   }
 

@@ -4,7 +4,11 @@
       <mat-card *ngFor="let product of products" class="card">
         <mat-card-header>
           <mat-card-title>
-            <a>{{ product.name }}</a>
+            <a
+              routerLink="/main/detail"
+              [queryParams]="{ products: product.name }"
+              >{{ product.name }}</a
+            >
           </mat-card-title>
           <mat-card-subtitle>{{ product.category.name }}</mat-card-subtitle>
         </mat-card-header>
@@ -19,19 +23,14 @@
           </p>
           <p>Price: {{ product.master.price | currency }}</p>
         </mat-card-content>
-        <mat-card-actions class="actions">
-          <button mat-raised-button color="primary">LIKE</button>
-          <button mat-raised-button color="primary">DISLIKE</button>
-          <button mat-raised-button color="primary">ADD TO CART</button>
-        </mat-card-actions>
+        <app-like-dislike></app-like-dislike>
       </mat-card>
     </div>
   </ng-container>
-
   <ng-template #noResults>
     <div class="container">
       <div class="no-results">
-        <mat-icon>sentiment_very_dissatisfied</mat-icon>
+        <mat-icon class="icon">sentiment_very_dissatisfied</mat-icon>
         <h3>No results</h3>
       </div>
     </div>

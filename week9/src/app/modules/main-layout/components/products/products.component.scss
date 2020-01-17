@@ -10,6 +10,20 @@
 
 a {
   font-size: 24px;
+  color: $font-color;
+}
+
+.container {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  text-align: center;
+}
+
+.icon {
+  font-size: 48px;
 }
 
 .actions {

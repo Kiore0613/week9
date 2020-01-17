@@ -10,7 +10,7 @@ export class ToastService {
 
   showToast(error: string) {
     this.toast.openFromComponent(ToastComponent, {
-      data: "error",
+      data: error,
       duration: 3000,
       horizontalPosition: "center",
       verticalPosition: "bottom"
