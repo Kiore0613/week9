@@ -1,9 +1,11 @@
+import { LikeDislike } from "./../models/like-dislike";
 import { Product } from "./../models/product";
 import { ResponseFromApi } from "../../../core/models/response-from-api";
 import { Category } from "./../models/category";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
+import { likeDislikeResponse } from "../models/like-dislike-response";
 
 @Injectable({
   providedIn: "root"
@@ -29,6 +31,14 @@ export class ApiService {
       .pipe(map((response: ResponseFromApi<Product[]>) => response.data));
   }
 
+  getProductDetail(slug: string) {
+    return this.http
+      .get(
+        `${this.baseUrl}/products/${slug}?include=image_attachment.blob,category,master`
+      )
+      .pipe(map((response: ResponseFromApi<Product>) => response.data));
+  }
+
   getProductsByName(name: string) {
     return this.http
       .get(`${this.baseUrl}/products`, {
@@ -38,6 +48,26 @@ export class ApiService {
         }
       })
       .pipe(map((response: ResponseFromApi<Product[]>) => response.data));
+  }
+
+  likesDislike(idProduct: number, action: number) {
+    const actions = {
+      data: {
+        product_id: idProduct,
+        kind: action
+      }
+    };
+    console.log(actions);
+    return this.http
+      .post<ResponseFromApi<likeDislikeResponse>>(
+        `${this.baseUrl}/likes`,
+        actions
+      )
+      .pipe(
+        map(response => {
+          return response.data;
+        })
+      );
   }
 
   getProducts() {
