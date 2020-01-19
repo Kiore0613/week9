@@ -1,11 +1,11 @@
-import { ProductState, initialProductState } from './product.state';
+import { productAdapter } from "./product.state";
+import { EntityState } from "@ngrx/entity";
+import { Product } from "src/app/modules/main-layout/models/product";
 
 export interface AppProductState {
-  products: ProductState;
+  products: EntityState<Product>;
 }
 
 export const initialAppProductState: AppProductState = {
-  products: initialProductState
+  products: productAdapter.getInitialState()
 };
-export const getInitialAppProductState = (): AppProductState =>
-  initialAppProductState;
