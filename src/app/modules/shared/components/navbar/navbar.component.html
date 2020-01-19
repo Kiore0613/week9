@@ -13,7 +13,7 @@
     />
   </div>
 
-  <div class="profile-container" *ngIf="isLogin$ | async; else notLogged">
+  <div class="profile-container" *ngIf="isLogged; else notLogged">
     <div class="image-container">
       <img
         (click)="showProfile()"
