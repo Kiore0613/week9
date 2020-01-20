@@ -46,14 +46,13 @@ export class ApiService {
       .pipe(map((response: ResponseFromApi<Product[]>) => response.data));
   }
 
-  likesDislike(idProduct: number, action: number) {
+  likesDislike(idProduct: string, action: number) {
     const actions = {
       data: {
         product_id: idProduct,
         kind: action
       }
     };
-    console.log(actions);
     return this.http
       .post<ResponseFromApi<likeDislikeResponse>>(
         `${this.baseUrl}/likes`,

@@ -12,17 +12,22 @@
       (keyup)="search(inputSearch.value)"
     />
   </div>
+  <div class="cart-profile">
+    <a class="button" color="primary" routerLink="cart">
+      <mat-icon>shopping_cart</mat-icon>
+    </a>
+    <div class="profile-container" *ngIf="isLogged; else notLogged">
+      <div class="image-container">
+        <img
+          (click)="showProfile()"
+          src="https://picsum.photos/200"
+          alt="Applaudo-logo"
+        />
+      </div>
 
-  <div class="profile-container" *ngIf="isLogged; else notLogged">
-    <div class="image-container">
-      <img
-        (click)="showProfile()"
-        src="https://picsum.photos/200"
-        alt="Applaudo-logo"
-      />
-    </div>
-    <div class="profile" [hidden]="isHidden">
-      <app-profile></app-profile>
+      <div class="profile" [hidden]="isHidden">
+        <app-profile></app-profile>
+      </div>
     </div>
   </div>
   <ng-template #notLogged>
@@ -31,6 +36,3 @@
     </a>
   </ng-template>
 </mat-toolbar>
-<!--<div class="profile" [hidden]="isHidden">
-  <app-profile></app-profile>
-</div> -->

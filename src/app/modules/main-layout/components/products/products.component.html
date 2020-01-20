@@ -21,7 +21,7 @@
           </p>
           <p>Price: {{ product.master.price | currency }}</p>
         </mat-card-content>
-        <app-like-dislike [idProduct]="product.id"></app-like-dislike>
+        <app-like-dislike [product]="product"></app-like-dislike>
       </mat-card>
     </div>
   </ng-container>
