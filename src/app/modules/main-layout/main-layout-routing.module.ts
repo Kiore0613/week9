@@ -15,10 +15,6 @@ const routes: Routes = [
     component: ProductDetailComponent
   },
   {
-    path: "cart",
-    component: ShoppingCartComponent
-  },
-  {
     path: "products",
     component: ProductsComponent
   }
