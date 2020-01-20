@@ -1,0 +1,29 @@
+<div class="container" *ngIf="productDetail">
+  <div class="image">
+    <img
+      [src]="productDetail.image?.url || 'https://bit.ly/2u5qHvL'"
+      alt="Image product"
+    />
+  </div>
+  <div class="detail">
+    <p>{{ productDetail?.name }}</p>
+    <p>
+      {{ productDetail.description }}
+    </p>
+    <p>{{ productDetail.category?.name }}</p>
+    <div class="cart-detail">
+      <mat-form-field class="input-container" appearance="outline">
+        <mat-label>Quantity</mat-label>
+        <input
+          matInput
+          minlength="1"
+          required
+          placeholder="Quantity"
+          formControlName="password"
+          type="number"
+        />
+      </mat-form-field>
+    </div>
+    <app-like-dislike [product]="productDetail"></app-like-dislike>
+  </div>
+</div>

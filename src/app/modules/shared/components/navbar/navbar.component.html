@@ -1,0 +1,38 @@
+<mat-toolbar class="nav-home mat-app-background" color="primary">
+  <button mat-icon-button (click)="showMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div class="search">
+    <input
+      #inputSearch
+      class="form-input"
+      type="text"
+      placeholder="Search"
+      (click)="redirectTo()"
+      (keyup)="search(inputSearch.value)"
+    />
+  </div>
+  <div class="cart-profile">
+    <a class="button" color="primary">
+      <mat-icon>shopping_cart</mat-icon>
+    </a>
+    <div class="profile-container" *ngIf="isLogged; else notLogged">
+      <div class="image-container">
+        <img
+          (click)="showProfile()"
+          src="https://picsum.photos/200"
+          alt="Applaudo-logo"
+        />
+      </div>
+
+      <div class="profile" [hidden]="isHidden">
+        <app-profile></app-profile>
+      </div>
+    </div>
+  </div>
+  <ng-template #notLogged>
+    <a routerLink="/login" mat-button>
+      Login
+    </a>
+  </ng-template>
+</mat-toolbar>

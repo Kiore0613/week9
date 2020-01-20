@@ -1,0 +1,61 @@
+@import "styles/variables.scss";
+@import "styles/mixins.scss";
+
+.profile-container {
+  position: relative;
+}
+
+.cart-profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 24px;
+  a {
+    display: flex;
+    color: $font-color;
+  }
+}
+
+.search {
+  width: 50%;
+}
+
+.profile {
+  z-index: 1000;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  right: 5%;
+  top: 90%;
+}
+.nav-home {
+  background: "primary";
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-input {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 36px;
+  text-indent: 16px;
+  border: none;
+  border-radius: 12px;
+  color: $black;
+}
+.image-container {
+  img {
+    display: flex;
+    justify-content: center;
+    margin: 16px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}

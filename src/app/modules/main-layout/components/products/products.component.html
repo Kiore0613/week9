@@ -1,0 +1,36 @@
+<ng-container *ngIf="products$ | async as products">
+  <ng-container *ngIf="products.length > 0; else noResults">
+    <div class="product-grid">
+      <mat-card *ngFor="let product of products" class="card">
+        <mat-card-header>
+          <mat-card-title>
+            <a [routerLink]="['/main/detail', product.slug]"
+              >{{ product.name }}
+            </a>
+          </mat-card-title>
+          <mat-card-subtitle>{{ product.category.name }}</mat-card-subtitle>
+        </mat-card-header>
+        <img
+          mat-card-image
+          [src]="product.image?.url || 'https://bit.ly/2u5qHvL'"
+          alt="Photo of products"
+        />
+        <mat-card-content>
+          <p>
+            {{ product.description }}
+          </p>
+          <p>Price: {{ product.master.price | currency }}</p>
+        </mat-card-content>
+        <app-like-dislike [product]="product"></app-like-dislike>
+      </mat-card>
+    </div>
+  </ng-container>
+  <ng-template #noResults>
+    <div class="container">
+      <div class="no-results">
+        <mat-icon class="icon">sentiment_very_dissatisfied</mat-icon>
+        <h3>No results</h3>
+      </div>
+    </div>
+  </ng-template>
+</ng-container>

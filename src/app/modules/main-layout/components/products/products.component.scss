@@ -1,0 +1,89 @@
+@import "styles/variables.scss";
+@import "styles/mixins.scss";
+
+.product-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+a {
+  font-size: 24px;
+  color: $font-color;
+}
+
+.container {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  text-align: center;
+}
+
+.icon {
+  font-size: 48px;
+}
+
+.actions {
+  margin-top: auto;
+}
+
+.header-image {
+  background-size: cover;
+}
+
+@include screen-small {
+  .actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  .card {
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+    img {
+      width: 250px;
+      height: 250px;
+      margin: 16px auto;
+      border-radius: 8px;
+    }
+  }
+}
+
+@include screen-medium {
+  .actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  .card {
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+    img {
+      max-width: 200px;
+      width: inherit;
+      margin: 16px auto;
+      border-radius: 8px;
+    }
+  }
+}
+
+@include screen-large {
+  .actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  .card {
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+    img {
+      max-width: 250px;
+      width: inherit;
+      margin: 16px auto;
+      border-radius: 8px;
+    }
+  }
+}
