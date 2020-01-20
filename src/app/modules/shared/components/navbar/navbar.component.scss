@@ -5,13 +5,27 @@
   position: relative;
 }
 
+.cart-profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 24px;
+  a {
+    display: flex;
+    color: $font-color;
+  }
+}
+
+.search {
+  width: 50%;
+}
+
 .profile {
   z-index: 1000;
   position: absolute;
   justify-content: center;
   align-items: center;
   width: fit-content;
-  top: 0;
   right: 5%;
   top: 90%;
 }
@@ -26,7 +40,6 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 8px;
   height: 36px;
   text-indent: 16px;
   border: none;

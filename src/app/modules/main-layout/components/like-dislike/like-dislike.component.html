@@ -19,7 +19,12 @@
       <mat-icon>favorite_border</mat-icon>
     </button>
   </div>
-  <button mat-raised-button class="button" color="primary">
+  <button
+    mat-raised-button
+    class="button"
+    color="primary"
+    (click)="addToCart()"
+  >
     <mat-icon>add_shopping_cart</mat-icon>
   </button>
 </mat-card-actions>

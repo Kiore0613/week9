@@ -1,0 +1,73 @@
+@import "styles/variables.scss";
+@import "styles/mixins.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.image {
+  img {
+    border-radius: 8px;
+    width: 50%;
+  }
+  margin: 16px;
+}
+
+.detail {
+  width: 80%;
+  display: block;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  margin: 16px;
+  padding: 8px;
+  border-radius: 8px;
+  background: $background-card;
+}
+
+.product-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@include screen-small {
+  .detail {
+    width: 80%;
+  }
+}
+
+@include screen-medium {
+  .detail {
+    width: 80%;
+  }
+}
+
+@include screen-large {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+  .image {
+    img {
+      margin: 16px auto;
+      width: 80%;
+    }
+  }
+  .detail {
+    width: 80%;
+  }
+
+  .card-button {
+    padding: 0;
+  }
+
+  .input-container {
+    padding-bottom: 16px;
+  }
+}

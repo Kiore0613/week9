@@ -29,3 +29,8 @@ body {
 input::placeholder {
   color: $placeholder;
 }
+
+.toast {
+  color: $font-color;
+  background: $background-card;
+}

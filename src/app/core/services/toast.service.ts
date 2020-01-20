@@ -13,7 +13,8 @@ export class ToastService {
       data: error,
       duration: 3000,
       horizontalPosition: "center",
-      verticalPosition: "bottom"
+      verticalPosition: "bottom",
+      panelClass: ["toast"]
     });
   }
 }

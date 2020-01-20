@@ -1,6 +1,6 @@
+import { Product } from "./../../modules/main-layout/models/product";
 import { productAdapter } from "./product.state";
 import { EntityState } from "@ngrx/entity";
-import { Product } from "src/app/modules/main-layout/models/product";
 
 export interface AppProductState {
   products: EntityState<Product>;
@@ -9,3 +9,5 @@ export interface AppProductState {
 export const initialAppProductState: AppProductState = {
   products: productAdapter.getInitialState()
 };
+
+export const getInitialState = (): AppProductState => initialAppProductState;
