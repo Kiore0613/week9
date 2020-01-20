@@ -1,6 +1,12 @@
-import { BehaviorSubject, Observable } from "rxjs";
+import { BehaviorSubject, Subscription } from "rxjs";
 import { AuthService } from "./../../../authentication/services/auth.service";
-import { Component, Output, EventEmitter, OnInit } from "@angular/core";
+import {
+  Component,
+  Output,
+  EventEmitter,
+  OnInit,
+  OnDestroy
+} from "@angular/core";
 import { Router } from "@angular/router";
 import { distinctUntilChanged, debounceTime } from "rxjs/operators";
 import { GetProductsByNameAction } from "src/app/store/actions/product.actions";
@@ -12,9 +18,10 @@ import { AppProductState } from "src/app/store/states/app.state";
   templateUrl: "./navbar.component.html",
   styleUrls: ["./navbar.component.scss"]
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
   isHidden = true;
-  isLogin$: Observable<boolean>;
+  isLogged = false;
+  authState: Subscription;
   private searchProduct = new BehaviorSubject<string>("");
 
   @Output() toggle = new EventEmitter();
@@ -26,7 +33,9 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.searchProductSubject();
-    this.isLogin$ = this.authService.logIn$;
+    this.authState = this.authService.logIn$.subscribe(state => {
+      this.isLogged = state;
+    });
   }
   showMenu() {
     this.toggle.emit();
@@ -49,5 +58,9 @@ export class NavbarComponent implements OnInit {
 
   redirectTo() {
     this.router.navigate(["/main"]);
+  }
+
+  ngOnDestroy() {
+    this.authState.unsubscribe();
   }
 }

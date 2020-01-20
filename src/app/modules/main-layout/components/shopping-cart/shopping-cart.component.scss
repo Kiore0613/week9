@@ -12,25 +12,28 @@
 .image {
   img {
     border-radius: 8px;
-    width: 100%;
+    width: 50%;
   }
   margin: 16px;
 }
 
 .detail {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 80%;
+  display: block;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
   align-items: center;
   margin: 16px;
+  padding: 8px;
   border-radius: 8px;
   background: $background-card;
 }
 
-.cart-detail {
+.product-detail {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 @include screen-small {

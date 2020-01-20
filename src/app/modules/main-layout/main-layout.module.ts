@@ -14,6 +14,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { CategoriesComponent } from "./components/categories/categories.component";
 import { MatCardModule } from "@angular/material/card";
 import { LikeDislikeComponent } from './components/like-dislike/like-dislike.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LikeDislikeComponent } from './components/like-dislike/like-dislike.com
     ProductsComponent,
     ProductDetailComponent,
     CategoriesComponent,
-    LikeDislikeComponent
+    LikeDislikeComponent,
+    ShoppingCartComponent
   ],
   imports: [
     CommonModule,

@@ -1,21 +1,30 @@
 <mat-card-actions class="actions">
+  <div class="like-dislike">
+    <button
+      mat-raised-button
+      class="button"
+      color="primary"
+      [disabled]="!isLogged"
+      (click)="like()"
+    >
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button
+      mat-raised-button
+      class="button"
+      color="primary"
+      [disabled]="!isLogged"
+      (click)="dislike()"
+    >
+      <mat-icon>favorite_border</mat-icon>
+    </button>
+  </div>
   <button
     mat-raised-button
     class="button"
     color="primary"
-    [disabled]="isDisabled"
-    (click)="like()"
+    (click)="addToCart()"
   >
-    LIKE
+    <mat-icon>add_shopping_cart</mat-icon>
   </button>
-  <button
-    mat-raised-button
-    class="button"
-    color="primary"
-    [disabled]="isDisabled"
-    (click)="dislike()"
-  >
-    DISLIKE
-  </button>
-  <button mat-raised-button class="button" color="primary">ADD TO CART</button>
 </mat-card-actions>
