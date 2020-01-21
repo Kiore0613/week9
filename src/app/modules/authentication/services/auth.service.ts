@@ -36,7 +36,7 @@ export class AuthService {
         map(response => {
           this.user$.next(response.data.user);
           this.localStorageService.setToken(response.data.token);
-          return response.data, (this.isLogged = true);
+          return response.data;
         }),
         catchError(error => this.handleErrorLogin(error))
       );
