@@ -1,16 +1,16 @@
-import { Product } from "./../../modules/main-layout/models/product";
-import { Action } from "@ngrx/store";
+import { Product } from './../../modules/main-layout/models/product';
+import { Action } from '@ngrx/store';
 
 export enum EProductActions {
-  GetProducts = "[Product] Get Products",
-  GetProductsFailure = "[Product] Get ProductsFailure",
-  GetProductsSuccess = "[Product] Get ProductsSuccess",
-  getProductsByCategory = "[Category] get ProductsByCategory",
-  GetProductsByCategoryFailure = "[Category] Get ProductsByCategoryFailure",
-  GetProductsByCategorySuccess = "[Category] Get ProductsByCategorySuccess",
-  getProductsByName = "[Product] get ProductsByName",
-  GetProductsByNameFailure = "[Product] Get ProductsByNameFailure",
-  GetProductsByNameSuccess = "[Product] Get ProductsByNameSuccess"
+  GetProducts = '[Product] Get Products',
+  GetProductsFailure = '[Product] Get ProductsFailure',
+  GetProductsSuccess = '[Product] Get ProductsSuccess',
+  getProductsByCategory = '[Category] get ProductsByCategory',
+  GetProductsByCategoryFailure = '[Category] Get ProductsByCategoryFailure',
+  GetProductsByCategorySuccess = '[Category] Get ProductsByCategorySuccess',
+  getProductsByName = '[Product] get ProductsByName',
+  GetProductsByNameFailure = '[Product] Get ProductsByNameFailure',
+  GetProductsByNameSuccess = '[Product] Get ProductsByNameSuccess'
 }
 
 interface CategoryPayload {

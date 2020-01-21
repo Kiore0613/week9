@@ -1,6 +1,6 @@
-import { ProductState } from "./../states/product.state";
-import { AppProductState } from "./../states/app.state";
-import { createSelector } from "@ngrx/store";
+import { ProductState } from './../states/product.state';
+import { AppProductState } from './../states/app.state';
+import { createSelector } from '@ngrx/store';
 
 export const getProductState = (state: AppProductState) => state.products;
 

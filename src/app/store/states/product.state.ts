@@ -1,5 +1,5 @@
-import { Product } from "src/app/modules/main-layout/models/product";
-import { EntityState, EntityAdapter, createEntityAdapter } from "@ngrx/entity";
+import { Product } from 'src/app/modules/main-layout/models/product';
+import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 
 export interface ProductState extends EntityState<Product> {
   products: Product[];
