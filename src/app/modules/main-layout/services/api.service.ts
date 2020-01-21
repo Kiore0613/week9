@@ -1,19 +1,19 @@
-import { Product } from "./../models/product";
-import { ResponseFromApi } from "../../../core/models/response-from-api";
-import { Category } from "./../models/category";
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { map } from "rxjs/operators";
-import { likeDislikeResponse } from "../models/like-dislike-response";
+import { Product } from './../models/product';
+import { ResponseFromApi } from '../../../core/models/response-from-api';
+import { Category } from './../models/category';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { LikeDislikeResponse } from '../models/like-dislike-response';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class ApiService {
   private baseUrl: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = "https://trainee-program.herokuapp.com/api/v1";
+    this.baseUrl = 'https://trainee-program.herokuapp.com/api/v1';
   }
 
   getCategories() {
@@ -54,7 +54,7 @@ export class ApiService {
       }
     };
     return this.http
-      .post<ResponseFromApi<likeDislikeResponse>>(
+      .post<ResponseFromApi<LikeDislikeResponse>>(
         `${this.baseUrl}/likes`,
         actions
       )

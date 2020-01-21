@@ -1,31 +1,31 @@
-import { AuthorizedGuard } from "./modules/authentication/guards/authorized.guard";
-import { LoginComponent } from "./modules/authentication/components/login/login.component";
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-import { NotFoundComponent } from "./modules/shared/components/not-found/not-found.component";
-import { MainLayoutComponent } from "./modules/main-layout/components/main-layout/main-layout.component";
+import { AuthorizedGuard } from './modules/authentication/guards/authorized.guard';
+import { LoginComponent } from './modules/authentication/components/login/login.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { NotFoundComponent } from './modules/shared/components/not-found/not-found.component';
+import { MainLayoutComponent } from './modules/main-layout/components/main-layout/main-layout.component';
 
 const routes: Routes = [
   {
-    path: "",
-    pathMatch: "full",
-    redirectTo: "main"
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'main'
   },
   {
-    path: "main",
+    path: 'main',
     component: MainLayoutComponent,
     loadChildren: () =>
-      import("./modules/main-layout/main-layout.module").then(
+      import('./modules/main-layout/main-layout.module').then(
         m => m.MainLayoutModule
       )
   },
   {
-    path: "login",
+    path: 'login',
     component: LoginComponent,
     canActivate: [AuthorizedGuard]
   },
   {
-    path: "**",
+    path: '**',
     component: NotFoundComponent
   }
 ];

@@ -1,9 +1,9 @@
-import { EProductActions, ProductActions } from "./../actions/product.actions";
+import { EProductActions, ProductActions } from './../actions/product.actions';
 import {
   ProductState,
   initialProductStateProperties,
   productAdapter
-} from "./../states/product.state";
+} from './../states/product.state';
 
 export function productReducer(
   state: ProductState = initialProductStateProperties,
