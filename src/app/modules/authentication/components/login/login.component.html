@@ -6,10 +6,10 @@
     <mat-form-field class="input-container" appearance="outline">
       <mat-label>Email</mat-label>
       <input matInput placeholder="me@example.com" formControlName="email" />
-      <mat-error *ngIf="getControl('email').errors?.required">
+      <mat-error *ngIf="getControl('email').errors?.required" id="email">
         Email is <strong>required</strong>
       </mat-error>
-      <mat-error *ngIf="getControl('email').errors?.email">
+      <mat-error *ngIf="getControl('email').errors?.email" >
         Email is <strong>invalid format</strong>
       </mat-error>
     </mat-form-field>
