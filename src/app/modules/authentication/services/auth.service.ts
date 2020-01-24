@@ -1,15 +1,15 @@
-import { UserResponse } from "./../models/user-response";
-import { Credential } from "../models/credential";
-import { LocalStorageService } from "./local-storage.service";
-import { ResponseFromApi } from "../../../core/models/response-from-api";
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { map, catchError } from "rxjs/operators";
-import { BehaviorSubject, throwError } from "rxjs";
-import { User } from "../models/user";
+import { UserResponse } from './../models/user-response';
+import { Credential } from '../models/credential';
+import { LocalStorageService } from './local-storage.service';
+import { ResponseFromApi } from '../../../core/models/response-from-api';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { map, catchError } from 'rxjs/operators';
+import { BehaviorSubject, throwError } from 'rxjs';
+import { User } from '../models/user';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class AuthService {
   private baseUrl: string;
@@ -22,7 +22,7 @@ export class AuthService {
     private http: HttpClient,
     private localStorageService: LocalStorageService
   ) {
-    this.baseUrl = "https://trainee-program.herokuapp.com/api/v1/users/";
+    this.baseUrl = 'https://trainee-program.herokuapp.com/api/v1/users/';
     this.logIn.next(this.isLogIn());
   }
 
@@ -36,7 +36,7 @@ export class AuthService {
         map(response => {
           this.user$.next(response.data.user);
           this.localStorageService.setToken(response.data.token);
-          return response.data, (this.isLogged = true);
+          return response.data;
         }),
         catchError(error => this.handleErrorLogin(error))
       );
@@ -61,7 +61,7 @@ export class AuthService {
   }
 
   handleErrorLogin(error: HttpErrorResponse) {
-    let errorMessage = "";
+    let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
       errorMessage = `Error: ${error.error.message}`;
     } else {

@@ -1,13 +1,13 @@
-import { ToastService } from "./../../../../core/services/toast.service";
-import { Product } from "./../../models/product";
-import { ApiService } from "./../../services/api.service";
-import { AuthService } from "./../../../authentication/services/auth.service";
-import { Component, OnInit, Input, OnDestroy } from "@angular/core";
-import { Subscription } from "rxjs";
+import { ToastService } from './../../../../core/services/toast.service';
+import { Product } from './../../models/product';
+import { ApiService } from './../../services/api.service';
+import { AuthService } from './../../../authentication/services/auth.service';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 @Component({
-  selector: "app-like-dislike",
-  templateUrl: "./like-dislike.component.html",
-  styleUrls: ["./like-dislike.component.scss"]
+  selector: 'app-like-dislike',
+  templateUrl: './like-dislike.component.html',
+  styleUrls: ['./like-dislike.component.scss']
 })
 export class LikeDislikeComponent implements OnInit, OnDestroy {
   isLogged = false;
@@ -29,7 +29,7 @@ export class LikeDislikeComponent implements OnInit, OnDestroy {
   }
 
   addToCart() {
-    this.toastService.showToast("Shopping Cart doesn't work yet");
+    this.toastService.showToast('Shopping Cart doesn\'t work yet');
   }
 
   ngOnDestroy() {

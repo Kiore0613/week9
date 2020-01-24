@@ -1,8 +1,8 @@
-import { Action } from "@ngrx/store";
-import { ApiService } from "./../../modules/main-layout/services/api.service";
-import { Injectable } from "@angular/core";
-import { Actions, Effect, ofType } from "@ngrx/effects";
-import { switchMap, catchError } from "rxjs/operators";
+import { Action } from '@ngrx/store';
+import { ApiService } from './../../modules/main-layout/services/api.service';
+import { Injectable } from '@angular/core';
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import { switchMap, catchError } from 'rxjs/operators';
 import {
   EProductActions,
   GetProductsByCategorySuccessAction,
@@ -14,8 +14,8 @@ import {
   GetProductsByNameFailureAction,
   GetProductsByNameSuccessAction,
   GetProductsByNameAction
-} from "../actions/product.actions";
-import { of } from "rxjs";
+} from '../actions/product.actions';
+import { of } from 'rxjs';
 
 @Injectable()
 export class ProductEffects {

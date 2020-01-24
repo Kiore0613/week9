@@ -17,16 +17,19 @@ const routes: Routes = [
     loadChildren: () =>
       import("./modules/main-layout/main-layout.module").then(
         m => m.MainLayoutModule
-      )
+      ),
+    data: { animation: "main" }
   },
   {
     path: "login",
     component: LoginComponent,
-    canActivate: [AuthorizedGuard]
+    canActivate: [AuthorizedGuard],
+    data: { animation: "login" }
   },
   {
     path: "**",
-    component: NotFoundComponent
+    component: NotFoundComponent,
+    data: { animation: "**" }
   }
 ];
 
